@@ -27,6 +27,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/api/hello', (req, res) => {
+  res.send("hi")
+})
 
 // register route
 
