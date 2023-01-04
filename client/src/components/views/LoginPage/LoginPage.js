@@ -32,7 +32,8 @@ function LoginPage() {
       .then(response => {
         if (response.payload.loginSuccess) {
           navigate('/');
-        } else { alert('Error') }
+        } else { 
+          alert('로그인 실패') }
       })
   }
 
@@ -52,4 +53,4 @@ function LoginPage() {
     )
 }
 
-export default LoginPage
+export default LoginPage;

@@ -52,7 +52,8 @@ function RegisterPage() {
       .then(response => {
         if (response.payload.success) {
           navigate('/loginpage');
-        } else { alert('Error') }
+        } else { 
+          alert('회원가입 실패') }
       })
   }
   return (
