@@ -8,6 +8,7 @@ import {
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
+import Auth from './hoc/auth';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -19,13 +20,18 @@ import RegisterPage from './components/views/RegisterPage/RegisterPage';
 // work properly.
 
 export default function BasicExample() {
+
+  const AuthLandingPage = Auth(LandingPage, null);
+  const AuthLoginPage = Auth(LoginPage, false);
+  const AuthRegisterPage = Auth(RegisterPage, false);
+
   return (
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route path="/loginpage" element={<LoginPage />} />
-          <Route path="/registerpage" element={<RegisterPage />} />
+          <Route exact path="/" element={<AuthLandingPage />} />
+          <Route path="/loginpage" element={<AuthLoginPage />} />
+          <Route path="/registerpage" element={<AuthRegisterPage />} />
         </Routes>
       </div>
     </Router>
